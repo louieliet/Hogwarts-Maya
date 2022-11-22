@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: Puente.ma
-//Last modified: Tue, Nov 22, 2022 04:27:17 PM
+//Last modified: Tue, Nov 22, 2022 04:34:09 PM
 //Codeset: 1252
 requires maya "2023";
 requires "mtoa" "5.1.2";
@@ -10,23 +10,23 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202205052215-234554116d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22000)";
-fileInfo "UUID" "82978117-4C84-6F10-1093-1B88A2399373";
+fileInfo "UUID" "314F67B6-4B6D-F5E7-B5EC-F9AE900224B8";
 createNode transform -s -n "persp";
 	rename -uid "6F74B932-4C56-59CD-F6D8-1392C54ECFC6";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 30.153668996169785 3.6640110035336995 1.2721813459393432 ;
-	setAttr ".r" -type "double3" 0.3194371983426908 91.245237625176173 -3.2238102251314207e-11 ;
-	setAttr ".rp" -type "double3" 0 0 -3.5527136788005009e-15 ;
-	setAttr ".rpt" -type "double3" -1.6135022460583313e-16 1.7184985700503164e-15 -1.4349702004218642e-14 ;
+	setAttr ".t" -type "double3" 38.880590494146773 11.249610179768842 -0.77471784630430218 ;
+	setAttr ".r" -type "double3" -9.8428209923795293 87.547434881163738 2.6013909808207868e-13 ;
+	setAttr ".rp" -type "double3" 8.8817841970012523e-16 0 -1.7763568394002505e-15 ;
+	setAttr ".rpt" -type "double3" 5.8532491190930462e-16 1.8487998568613082e-15 -1.5888739103000807e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "5714A286-4FF6-78FA-C54E-D99E0DF2456D";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 30.127290317106258;
+	setAttr ".coi" 42.425829133610044;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0.033961749025174015 3.8319767322255753 1.9268909850104292 ;
+	setAttr ".tp" -type "double3" -2.8824576278273515 3.9970880749197413 -2.5634918271700542 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "83A70890-4B30-C75E-E5D4-009C8156DA03";
@@ -7763,6 +7763,17 @@ createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "79634AE9-4FF8-C065-35D8-0C80557037FE";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
+createNode polyBridgeEdge -n "polyBridgeEdge33";
+	rename -uid "5D9F2A49-4180-A41A-F15B-71835FBAD380";
+	setAttr ".ics" -type "componentList" 2 "e[29]" "e[31]";
+	setAttr ".ix" -type "matrix" -0.38462247833200314 0 -4.7102668696940985e-17 0 0 3.9126919151296105 0 0
+		 5.4239469949820007e-17 0 -0.44289888307047909 0 1.328479391163645 3.9677676894244698 -1.0876454022765678 1;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".dv" 0;
+	setAttr ".sv1" 17;
+	setAttr ".sv2" 12;
+	setAttr ".d" 1;
+	setAttr ".sd" 1;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -7828,7 +7839,7 @@ connectAttr "polyExtrudeFace74.out" "pCubeShape53.i";
 connectAttr "polyExtrudeFace67.out" "pCubeShape55.i";
 connectAttr "polyExtrudeFace68.out" "pCubeShape57.i";
 connectAttr "polyExtrudeFace66.out" "pCubeShape58.i";
-connectAttr "polyExtrudeFace70.out" "pCubeShape59.i";
+connectAttr "polyBridgeEdge33.out" "pCubeShape59.i";
 connectAttr "polyExtrudeFace69.out" "pCubeShape60.i";
 connectAttr "polyExtrudeFace65.out" "pCubeShape61.i";
 connectAttr "polyBridgeEdge15.out" "pCubeShape62.i";
@@ -8725,6 +8736,8 @@ connectAttr "polyBridgeEdge19.out" "polyExtrudeFace77.ip";
 connectAttr "pCubeShape49.wm" "polyExtrudeFace77.mp";
 connectAttr "polyExtrudeFace71.out" "polyBridgeEdge32.ip";
 connectAttr "pCubeShape51.wm" "polyBridgeEdge32.mp";
+connectAttr "polyExtrudeFace70.out" "polyBridgeEdge33.ip";
+connectAttr "pCubeShape59.wm" "polyBridgeEdge33.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape6.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape11.iog" ":initialShadingGroup.dsm" -na;
